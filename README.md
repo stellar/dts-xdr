@@ -1,4 +1,5 @@
 # dts-xdr
+[![Stellar](https://circleci.com/gh/stellar/dts-xdr.svg?style=shield)](https://circleci.com/gh/stellar/dts-xdr)
 
 `dts-xdr` is a library for generating `TypeScript` declarations file (`.d.ts`) for [js-xdr](https://github.com/stellar/js-xdr) auto-generated files.
 

@@ -90,6 +90,36 @@ export default function unsignedInteger(
       dom.type.number
     )
   );
+  uintInterface.members.push(
+    dom.create.method(
+      'validateXDR',
+      [
+        dom.create.parameter('input', buffer),
+        dom.create.parameter(
+          'format',
+          dom.type.stringLiteral('raw'),
+          dom.ParameterFlags.Optional
+        )
+      ],
+      dom.type.boolean
+    )
+  );
+  uintInterface.members.push(
+    dom.create.method(
+      'validateXDR',
+      [
+        dom.create.parameter('input', dom.type.string),
+        dom.create.parameter(
+          'format',
+          dom.create.union([
+            dom.type.stringLiteral('hex'),
+            dom.type.stringLiteral('base64')
+          ])
+        )
+      ],
+      dom.type.boolean
+    )
+  );
 
   return uintInterface;
 }

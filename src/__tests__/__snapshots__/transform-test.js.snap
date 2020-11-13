@@ -11,6 +11,8 @@ exports[`.transform(type definitions) 1`] = `
         toXDR(value: number): Buffer;
         fromXDR(input: Buffer, format?: \\"raw\\"): number;
         fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): number;
+        validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+        validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
     }
 
     interface UnsignedInt {
@@ -22,6 +24,8 @@ exports[`.transform(type definitions) 1`] = `
         toXDR(value: number): Buffer;
         fromXDR(input: Buffer, format?: \\"raw\\"): number;
         fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): number;
+        validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+        validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
     }
 
     class Hyper {
@@ -119,6 +123,10 @@ exports[`.transform(type definitions) 1`] = `
 
         fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): Buffer;
 
+        validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+
+        validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
+
     }
 
     class XDRArray<T> {
@@ -133,6 +141,10 @@ exports[`.transform(type definitions) 1`] = `
         fromXDR(input: Buffer, format?: \\"raw\\"): T[];
 
         fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): T[];
+
+        validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+
+        validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
 
     }
 
@@ -150,6 +162,10 @@ exports[`.transform(type definitions) 1`] = `
         fromXDR(input: Buffer, format?: \\"raw\\"): Buffer;
 
         fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): Buffer;
+
+        validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+
+        validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
 
     }
 
@@ -174,6 +190,10 @@ exports[`.transform(type definitions) 1`] = `
         fromXDR(input: Buffer, format?: \\"raw\\"): any;
 
         fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): any;
+
+        validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+
+        validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
 
     }
 
@@ -221,6 +241,8 @@ exports[`.transform(xdr enum) 1`] = `
         toXDR(value: number): Buffer;
         fromXDR(input: Buffer, format?: \\"raw\\"): number;
         fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): number;
+        validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+        validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
     }
 
     interface UnsignedInt {
@@ -232,6 +254,8 @@ exports[`.transform(xdr enum) 1`] = `
         toXDR(value: number): Buffer;
         fromXDR(input: Buffer, format?: \\"raw\\"): number;
         fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): number;
+        validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+        validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
     }
 
     class Hyper {
@@ -329,6 +353,10 @@ exports[`.transform(xdr enum) 1`] = `
 
         fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): Buffer;
 
+        validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+
+        validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
+
     }
 
     class XDRArray<T> {
@@ -343,6 +371,10 @@ exports[`.transform(xdr enum) 1`] = `
         fromXDR(input: Buffer, format?: \\"raw\\"): T[];
 
         fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): T[];
+
+        validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+
+        validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
 
     }
 
@@ -360,6 +392,10 @@ exports[`.transform(xdr enum) 1`] = `
         fromXDR(input: Buffer, format?: \\"raw\\"): Buffer;
 
         fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): Buffer;
+
+        validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+
+        validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
 
     }
 
@@ -384,6 +420,10 @@ exports[`.transform(xdr enum) 1`] = `
         fromXDR(input: Buffer, format?: \\"raw\\"): any;
 
         fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): any;
+
+        validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+
+        validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
 
     }
 
@@ -412,6 +452,8 @@ exports[`.transform(xdr structs) 1`] = `
         toXDR(value: number): Buffer;
         fromXDR(input: Buffer, format?: \\"raw\\"): number;
         fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): number;
+        validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+        validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
     }
 
     interface UnsignedInt {
@@ -423,6 +465,8 @@ exports[`.transform(xdr structs) 1`] = `
         toXDR(value: number): Buffer;
         fromXDR(input: Buffer, format?: \\"raw\\"): number;
         fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): number;
+        validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+        validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
     }
 
     class Hyper {
@@ -520,6 +564,10 @@ exports[`.transform(xdr structs) 1`] = `
 
         fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): Buffer;
 
+        validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+
+        validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
+
     }
 
     class XDRArray<T> {
@@ -534,6 +582,10 @@ exports[`.transform(xdr structs) 1`] = `
         fromXDR(input: Buffer, format?: \\"raw\\"): T[];
 
         fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): T[];
+
+        validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+
+        validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
 
     }
 
@@ -551,6 +603,10 @@ exports[`.transform(xdr structs) 1`] = `
         fromXDR(input: Buffer, format?: \\"raw\\"): Buffer;
 
         fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): Buffer;
+
+        validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+
+        validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
 
     }
 
@@ -575,6 +631,10 @@ exports[`.transform(xdr structs) 1`] = `
         fromXDR(input: Buffer, format?: \\"raw\\"): any;
 
         fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): any;
+
+        validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+
+        validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
 
     }
 
@@ -681,6 +741,10 @@ exports[`.transform(xdr structs) 1`] = `
 
         static fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): Error;
 
+        static validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+
+        static validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
+
     }
 
     class LedgerEntryChange {
@@ -712,6 +776,10 @@ exports[`.transform(xdr structs) 1`] = `
 
         static fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): LedgerEntryChange;
 
+        static validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+
+        static validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
+
     }
 
 }"
@@ -728,6 +796,8 @@ exports[`.transform(xdr unions) 1`] = `
         toXDR(value: number): Buffer;
         fromXDR(input: Buffer, format?: \\"raw\\"): number;
         fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): number;
+        validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+        validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
     }
 
     interface UnsignedInt {
@@ -739,6 +809,8 @@ exports[`.transform(xdr unions) 1`] = `
         toXDR(value: number): Buffer;
         fromXDR(input: Buffer, format?: \\"raw\\"): number;
         fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): number;
+        validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+        validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
     }
 
     class Hyper {
@@ -836,6 +908,10 @@ exports[`.transform(xdr unions) 1`] = `
 
         fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): Buffer;
 
+        validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+
+        validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
+
     }
 
     class XDRArray<T> {
@@ -850,6 +926,10 @@ exports[`.transform(xdr unions) 1`] = `
         fromXDR(input: Buffer, format?: \\"raw\\"): T[];
 
         fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): T[];
+
+        validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+
+        validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
 
     }
 
@@ -867,6 +947,10 @@ exports[`.transform(xdr unions) 1`] = `
         fromXDR(input: Buffer, format?: \\"raw\\"): Buffer;
 
         fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): Buffer;
+
+        validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+
+        validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
 
     }
 
@@ -891,6 +975,10 @@ exports[`.transform(xdr unions) 1`] = `
         fromXDR(input: Buffer, format?: \\"raw\\"): any;
 
         fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): any;
+
+        validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+
+        validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
 
     }
 
@@ -937,6 +1025,10 @@ exports[`.transform(xdr unions) 1`] = `
 
         static fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): Error;
 
+        static validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+
+        static validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
+
     }
 
     class StellarMessage {
@@ -966,6 +1058,10 @@ exports[`.transform(xdr unions) 1`] = `
 
         static fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): StellarMessage;
 
+        static validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+
+        static validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
+
     }
 
     class PaymentResult {
@@ -990,6 +1086,10 @@ exports[`.transform(xdr unions) 1`] = `
         static fromXDR(input: Buffer, format?: \\"raw\\"): PaymentResult;
 
         static fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): PaymentResult;
+
+        static validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+
+        static validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
 
     }
 

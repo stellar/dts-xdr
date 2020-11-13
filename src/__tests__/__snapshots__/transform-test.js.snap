@@ -43,6 +43,10 @@ exports[`.transform(type definitions) 1`] = `
 
         static fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): Hyper;
 
+        static validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+
+        static validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
+
         static readonly MAX_VALUE: Hyper;
 
         static readonly MIN_VALUE: Hyper;
@@ -77,6 +81,10 @@ exports[`.transform(type definitions) 1`] = `
         static fromXDR(input: Buffer, format?: \\"raw\\"): UnsignedHyper;
 
         static fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): UnsignedHyper;
+
+        static validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+
+        static validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
 
         static readonly MAX_VALUE: UnsignedHyper;
 
@@ -245,6 +253,10 @@ exports[`.transform(xdr enum) 1`] = `
 
         static fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): Hyper;
 
+        static validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+
+        static validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
+
         static readonly MAX_VALUE: Hyper;
 
         static readonly MIN_VALUE: Hyper;
@@ -279,6 +291,10 @@ exports[`.transform(xdr enum) 1`] = `
         static fromXDR(input: Buffer, format?: \\"raw\\"): UnsignedHyper;
 
         static fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): UnsignedHyper;
+
+        static validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+
+        static validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
 
         static readonly MAX_VALUE: UnsignedHyper;
 
@@ -428,6 +444,10 @@ exports[`.transform(xdr structs) 1`] = `
 
         static fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): Hyper;
 
+        static validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+
+        static validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
+
         static readonly MAX_VALUE: Hyper;
 
         static readonly MIN_VALUE: Hyper;
@@ -462,6 +482,10 @@ exports[`.transform(xdr structs) 1`] = `
         static fromXDR(input: Buffer, format?: \\"raw\\"): UnsignedHyper;
 
         static fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): UnsignedHyper;
+
+        static validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+
+        static validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
 
         static readonly MAX_VALUE: UnsignedHyper;
 
@@ -736,6 +760,10 @@ exports[`.transform(xdr unions) 1`] = `
 
         static fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): Hyper;
 
+        static validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+
+        static validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
+
         static readonly MAX_VALUE: Hyper;
 
         static readonly MIN_VALUE: Hyper;
@@ -770,6 +798,10 @@ exports[`.transform(xdr unions) 1`] = `
         static fromXDR(input: Buffer, format?: \\"raw\\"): UnsignedHyper;
 
         static fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): UnsignedHyper;
+
+        static validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+
+        static validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
 
         static readonly MAX_VALUE: UnsignedHyper;
 

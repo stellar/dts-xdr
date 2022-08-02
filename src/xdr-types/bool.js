@@ -36,7 +36,7 @@ export default function xdrBool(ns) {
     dom.create.method(
       'toXDR',
        [dom.create.parameter('value', dom.type.boolean)],
-        buffer
+       buffer
       )
   );
   boolInterface.members.push(

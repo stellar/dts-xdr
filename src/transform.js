@@ -1,5 +1,6 @@
 import * as dom from 'dts-dom';
 import fs from 'fs';
+import xdrBool from './xdr-types/bool';
 import xdrInt from './xdr-types/integer';
 import hyperToTS from './xdr-types/hyper';
 import enumToTS from './xdr-types/enum';
@@ -28,6 +29,9 @@ export default function transformer(file, api) {
   ns.members.push(signedInt);
   ns.members.push(unsignedInt);
 
+  const bool = xdrBool(ns);
+  ns.members.push(bool);
+
   const hyper = hyperToTS(ns, 'Hyper');
   ns.members.push(hyper);
   const uhyper = hyperToTS(ns, 'UnsignedHyper');
@@ -52,6 +56,7 @@ export default function transformer(file, api) {
   const definitions = {
     INT: signedInt,
     UINT: unsignedInt,
+    BOOL: bool,
     HYPER: hyper,
     UHYPER: uhyper,
     STRING: xString,

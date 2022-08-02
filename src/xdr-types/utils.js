@@ -11,6 +11,7 @@ export function isNativeXDRType(node) {
     'hyper',
     'uhyper',
     'string',
+    'bool',
     'opaque',
     'varOpaque',
     'array',
@@ -36,6 +37,9 @@ function resolve(api, value, definitions) {
         break;
       case 'XDRString':
         return dom.create.union([dom.type.string, buffer]);
+        break;
+      case 'Bool':
+        return dom.type.boolean;
         break;
       case 'Opaque':
       case 'VarOpaque':
@@ -76,6 +80,9 @@ export function resolveType(api, node, definitions) {
         break;
       case 'string':
         return dom.create.union([dom.type.string, buffer]);
+        break;
+      case 'bool':
+        return dom.type.boolean;
         break;
       case 'opaque':
       case 'varOpaque':

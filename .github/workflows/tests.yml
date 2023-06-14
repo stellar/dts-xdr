@@ -21,7 +21,7 @@ jobs:
       run: yarn install
 
     - name: Check Snapshot Diff
-      run: yarn test -u && git diff-index --quiet HEAD
+      run: yarn test -u && (git diff-index --quiet HEAD; git diff)
 
     - name: Run Tests
       run: yarn test

@@ -14,12 +14,17 @@ export default function hyper(ns, name) {
   hyper.members.push(
     dom.create.constructor([
       dom.create.parameter(
-        'value',
+        'low_or_value',
         dom.create.union([
           dom.type.number,
           dom.type.string,
         ])
       ),
+      dom.create.parameter(
+        'high',
+        dom.type.number,
+        dom.ParameterFlags.Optional
+      )
     ])
   );
   hyper.members.push(
@@ -93,15 +98,6 @@ export default function hyper(ns, name) {
       'isValid',
       [dom.create.parameter('value', hyper)],
       dom.type.boolean,
-      dom.DeclarationFlags.Static
-    )
-  );
-
-  hyper.members.push(
-    dom.create.method(
-      'fromString',
-      dom.create.parameter('value', dom.type.string),
-      hyper,
       dom.DeclarationFlags.Static
     )
   );

@@ -46,7 +46,7 @@ exports[`.transform(type definitions) 1`] = `
 
         unsigned: boolean;
 
-        constructor(low_or_value: number | string, high?: number);
+        constructor(value_or_low: number | string, high?: number | string);
 
         toXDR(format?: \\"raw\\"): Buffer;
 
@@ -89,7 +89,7 @@ exports[`.transform(type definitions) 1`] = `
 
         unsigned: boolean;
 
-        constructor(low_or_value: number | string, high?: number);
+        constructor(value_or_low: number | string, high?: number | string);
 
         toXDR(format?: \\"raw\\"): Buffer;
 
@@ -295,7 +295,7 @@ exports[`.transform(xdr enum) 1`] = `
 
         unsigned: boolean;
 
-        constructor(low_or_value: number | string, high?: number);
+        constructor(value_or_low: number | string, high?: number | string);
 
         toXDR(format?: \\"raw\\"): Buffer;
 
@@ -338,7 +338,7 @@ exports[`.transform(xdr enum) 1`] = `
 
         unsigned: boolean;
 
-        constructor(low_or_value: number | string, high?: number);
+        constructor(value_or_low: number | string, high?: number | string);
 
         toXDR(format?: \\"raw\\"): Buffer;
 
@@ -525,7 +525,7 @@ exports[`.transform(xdr structs) 1`] = `
 
         unsigned: boolean;
 
-        constructor(low_or_value: number | string, high?: number);
+        constructor(value_or_low: number | string, high?: number | string);
 
         toXDR(format?: \\"raw\\"): Buffer;
 
@@ -568,7 +568,7 @@ exports[`.transform(xdr structs) 1`] = `
 
         unsigned: boolean;
 
-        constructor(low_or_value: number | string, high?: number);
+        constructor(value_or_low: number | string, high?: number | string);
 
         toXDR(format?: \\"raw\\"): Buffer;
 
@@ -888,7 +888,7 @@ exports[`.transform(xdr unions) 1`] = `
 
         unsigned: boolean;
 
-        constructor(low_or_value: number | string, high?: number);
+        constructor(value_or_low: number | string, high?: number | string);
 
         toXDR(format?: \\"raw\\"): Buffer;
 
@@ -931,7 +931,7 @@ exports[`.transform(xdr unions) 1`] = `
 
         unsigned: boolean;
 
-        constructor(low_or_value: number | string, high?: number);
+        constructor(value_or_low: number | string, high?: number | string);
 
         toXDR(format?: \\"raw\\"): Buffer;
 

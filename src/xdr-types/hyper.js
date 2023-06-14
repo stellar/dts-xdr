@@ -14,7 +14,7 @@ export default function hyper(ns, name) {
   hyper.members.push(
     dom.create.constructor([
       dom.create.parameter(
-        'low_or_value',
+        'value_or_low',
         dom.create.union([
           dom.type.number,
           dom.type.string
@@ -22,7 +22,10 @@ export default function hyper(ns, name) {
       ),
       dom.create.parameter(
         'high',
-        dom.type.number,
+        dom.create.union([
+          dom.type.number,
+          dom.type.string
+        ]),
         dom.ParameterFlags.Optional
       )
     ])

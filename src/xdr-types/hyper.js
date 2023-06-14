@@ -17,7 +17,7 @@ export default function hyper(ns, name) {
         'low_or_value',
         dom.create.union([
           dom.type.number,
-          dom.type.string,
+          dom.type.string
         ])
       ),
       dom.create.parameter(

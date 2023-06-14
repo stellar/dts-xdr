@@ -27,18 +27,6 @@ export default function hyper(ns, name) {
       )
     ])
   );
-  hyper.members.push(
-    dom.create.method(
-      'toBigInt',
-      dom.type.number,
-    )
-  )
-  hyper.members.push(
-    dom.create.method(
-      'toString',
-      dom.type.string,
-    )
-  )
 
   ioMixin(hyper, hyper, hyper, true);
   hyper.members.push(
@@ -99,6 +87,21 @@ export default function hyper(ns, name) {
       [dom.create.parameter('value', hyper)],
       dom.type.boolean,
       dom.DeclarationFlags.Static
+    )
+  );
+
+  hyper.members.push(
+    dom.create.method(
+      'toBigInt',
+      [],
+      dom.type.number
+    )
+  );
+  hyper.members.push(
+    dom.create.method(
+      'toString',
+      [],
+      dom.type.string
     )
   );
 

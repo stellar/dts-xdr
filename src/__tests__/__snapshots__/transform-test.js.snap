@@ -28,6 +28,17 @@ exports[`.transform(type definitions) 1`] = `
         validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
     }
 
+    interface Bool {
+        read(io: Buffer): boolean;
+        write(value: boolean, io: Buffer): void;
+        isValid(value: boolean): boolean;
+        toXDR(value: boolean): Buffer;
+        fromXDR(input: Buffer, format?: \\"raw\\"): boolean;
+        fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
+        validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+        validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
+    }
+
     class Hyper {
         low: number;
 
@@ -35,7 +46,7 @@ exports[`.transform(type definitions) 1`] = `
 
         unsigned: boolean;
 
-        constructor(low: number, high: number);
+        constructor(low_or_value: number | string, high?: number);
 
         toXDR(format?: \\"raw\\"): Buffer;
 
@@ -65,6 +76,10 @@ exports[`.transform(type definitions) 1`] = `
 
         static isValid(value: Hyper): boolean;
 
+        toBigInt(): number;
+
+        toString(): string;
+
     }
 
     class UnsignedHyper {
@@ -74,7 +89,7 @@ exports[`.transform(type definitions) 1`] = `
 
         unsigned: boolean;
 
-        constructor(low: number, high: number);
+        constructor(low_or_value: number | string, high?: number);
 
         toXDR(format?: \\"raw\\"): Buffer;
 
@@ -103,6 +118,10 @@ exports[`.transform(type definitions) 1`] = `
         static fromBytes(low: number, high: number): UnsignedHyper;
 
         static isValid(value: UnsignedHyper): boolean;
+
+        toBigInt(): number;
+
+        toString(): string;
 
     }
 
@@ -258,6 +277,17 @@ exports[`.transform(xdr enum) 1`] = `
         validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
     }
 
+    interface Bool {
+        read(io: Buffer): boolean;
+        write(value: boolean, io: Buffer): void;
+        isValid(value: boolean): boolean;
+        toXDR(value: boolean): Buffer;
+        fromXDR(input: Buffer, format?: \\"raw\\"): boolean;
+        fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
+        validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+        validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
+    }
+
     class Hyper {
         low: number;
 
@@ -265,7 +295,7 @@ exports[`.transform(xdr enum) 1`] = `
 
         unsigned: boolean;
 
-        constructor(low: number, high: number);
+        constructor(low_or_value: number | string, high?: number);
 
         toXDR(format?: \\"raw\\"): Buffer;
 
@@ -295,6 +325,10 @@ exports[`.transform(xdr enum) 1`] = `
 
         static isValid(value: Hyper): boolean;
 
+        toBigInt(): number;
+
+        toString(): string;
+
     }
 
     class UnsignedHyper {
@@ -304,7 +338,7 @@ exports[`.transform(xdr enum) 1`] = `
 
         unsigned: boolean;
 
-        constructor(low: number, high: number);
+        constructor(low_or_value: number | string, high?: number);
 
         toXDR(format?: \\"raw\\"): Buffer;
 
@@ -333,6 +367,10 @@ exports[`.transform(xdr enum) 1`] = `
         static fromBytes(low: number, high: number): UnsignedHyper;
 
         static isValid(value: UnsignedHyper): boolean;
+
+        toBigInt(): number;
+
+        toString(): string;
 
     }
 
@@ -469,6 +507,17 @@ exports[`.transform(xdr structs) 1`] = `
         validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
     }
 
+    interface Bool {
+        read(io: Buffer): boolean;
+        write(value: boolean, io: Buffer): void;
+        isValid(value: boolean): boolean;
+        toXDR(value: boolean): Buffer;
+        fromXDR(input: Buffer, format?: \\"raw\\"): boolean;
+        fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
+        validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+        validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
+    }
+
     class Hyper {
         low: number;
 
@@ -476,7 +525,7 @@ exports[`.transform(xdr structs) 1`] = `
 
         unsigned: boolean;
 
-        constructor(low: number, high: number);
+        constructor(low_or_value: number | string, high?: number);
 
         toXDR(format?: \\"raw\\"): Buffer;
 
@@ -506,6 +555,10 @@ exports[`.transform(xdr structs) 1`] = `
 
         static isValid(value: Hyper): boolean;
 
+        toBigInt(): number;
+
+        toString(): string;
+
     }
 
     class UnsignedHyper {
@@ -515,7 +568,7 @@ exports[`.transform(xdr structs) 1`] = `
 
         unsigned: boolean;
 
-        constructor(low: number, high: number);
+        constructor(low_or_value: number | string, high?: number);
 
         toXDR(format?: \\"raw\\"): Buffer;
 
@@ -544,6 +597,10 @@ exports[`.transform(xdr structs) 1`] = `
         static fromBytes(low: number, high: number): UnsignedHyper;
 
         static isValid(value: UnsignedHyper): boolean;
+
+        toBigInt(): number;
+
+        toString(): string;
 
     }
 
@@ -813,6 +870,17 @@ exports[`.transform(xdr unions) 1`] = `
         validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
     }
 
+    interface Bool {
+        read(io: Buffer): boolean;
+        write(value: boolean, io: Buffer): void;
+        isValid(value: boolean): boolean;
+        toXDR(value: boolean): Buffer;
+        fromXDR(input: Buffer, format?: \\"raw\\"): boolean;
+        fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
+        validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+        validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
+    }
+
     class Hyper {
         low: number;
 
@@ -820,7 +888,7 @@ exports[`.transform(xdr unions) 1`] = `
 
         unsigned: boolean;
 
-        constructor(low: number, high: number);
+        constructor(low_or_value: number | string, high?: number);
 
         toXDR(format?: \\"raw\\"): Buffer;
 
@@ -850,6 +918,10 @@ exports[`.transform(xdr unions) 1`] = `
 
         static isValid(value: Hyper): boolean;
 
+        toBigInt(): number;
+
+        toString(): string;
+
     }
 
     class UnsignedHyper {
@@ -859,7 +931,7 @@ exports[`.transform(xdr unions) 1`] = `
 
         unsigned: boolean;
 
-        constructor(low: number, high: number);
+        constructor(low_or_value: number | string, high?: number);
 
         toXDR(format?: \\"raw\\"): Buffer;
 
@@ -888,6 +960,10 @@ exports[`.transform(xdr unions) 1`] = `
         static fromBytes(low: number, high: number): UnsignedHyper;
 
         static isValid(value: UnsignedHyper): boolean;
+
+        toBigInt(): number;
+
+        toString(): string;
 
     }
 

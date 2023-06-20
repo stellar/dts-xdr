@@ -17,6 +17,7 @@ export default function hyper(ns, name) {
         'value_or_low',
         dom.create.union([
           dom.type.number,
+          dom.type.bigint,
           dom.type.string
         ])
       ),
@@ -24,6 +25,7 @@ export default function hyper(ns, name) {
         'high',
         dom.create.union([
           dom.type.number,
+          dom.type.bigint,
           dom.type.string
         ]),
         dom.ParameterFlags.Optional
@@ -97,7 +99,7 @@ export default function hyper(ns, name) {
     dom.create.method(
       'toBigInt',
       [],
-      dom.type.number
+      dom.type.bigint
     )
   );
   hyper.members.push(

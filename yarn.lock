@@ -2083,9 +2083,9 @@ domexception@^1.0.1:
   dependencies:
     webidl-conversions "^4.0.2"
 
-"dts-dom@git+https://github.com/Shaptic/dts-dom#bigint-support":
+"dts-dom@git+https://github.com/Shaptic/dts-dom#552a6d0":
   version "3.6.0"
-  resolved "git+https://github.com/Shaptic/dts-dom#c8757a394f8efa759cb8fc86f867d50b2bda9a36"
+  resolved "git+https://github.com/Shaptic/dts-dom#552a6d0c450e277ba8e999eb0928c2c0f9ea8846"
 
 ecc-jsbn@~0.1.1:
   version "0.1.2"

@@ -46,7 +46,7 @@ exports[`.transform(type definitions) 1`] = `
 
         unsigned: boolean;
 
-        constructor(value_or_low: number | string, high?: number | string);
+        constructor(values: string | bigint | number | (string | bigint | number)[]);
 
         toXDR(format?: \\"raw\\"): Buffer;
 
@@ -76,7 +76,7 @@ exports[`.transform(type definitions) 1`] = `
 
         static isValid(value: Hyper): boolean;
 
-        toBigInt(): number;
+        toBigInt(): bigint;
 
         toString(): string;
 
@@ -89,7 +89,7 @@ exports[`.transform(type definitions) 1`] = `
 
         unsigned: boolean;
 
-        constructor(value_or_low: number | string, high?: number | string);
+        constructor(values: string | bigint | number | (string | bigint | number)[]);
 
         toXDR(format?: \\"raw\\"): Buffer;
 
@@ -119,7 +119,7 @@ exports[`.transform(type definitions) 1`] = `
 
         static isValid(value: UnsignedHyper): boolean;
 
-        toBigInt(): number;
+        toBigInt(): bigint;
 
         toString(): string;
 
@@ -295,7 +295,7 @@ exports[`.transform(xdr enum) 1`] = `
 
         unsigned: boolean;
 
-        constructor(value_or_low: number | string, high?: number | string);
+        constructor(values: string | bigint | number | (string | bigint | number)[]);
 
         toXDR(format?: \\"raw\\"): Buffer;
 
@@ -325,7 +325,7 @@ exports[`.transform(xdr enum) 1`] = `
 
         static isValid(value: Hyper): boolean;
 
-        toBigInt(): number;
+        toBigInt(): bigint;
 
         toString(): string;
 
@@ -338,7 +338,7 @@ exports[`.transform(xdr enum) 1`] = `
 
         unsigned: boolean;
 
-        constructor(value_or_low: number | string, high?: number | string);
+        constructor(values: string | bigint | number | (string | bigint | number)[]);
 
         toXDR(format?: \\"raw\\"): Buffer;
 
@@ -368,7 +368,7 @@ exports[`.transform(xdr enum) 1`] = `
 
         static isValid(value: UnsignedHyper): boolean;
 
-        toBigInt(): number;
+        toBigInt(): bigint;
 
         toString(): string;
 
@@ -525,7 +525,7 @@ exports[`.transform(xdr structs) 1`] = `
 
         unsigned: boolean;
 
-        constructor(value_or_low: number | string, high?: number | string);
+        constructor(values: string | bigint | number | (string | bigint | number)[]);
 
         toXDR(format?: \\"raw\\"): Buffer;
 
@@ -555,7 +555,7 @@ exports[`.transform(xdr structs) 1`] = `
 
         static isValid(value: Hyper): boolean;
 
-        toBigInt(): number;
+        toBigInt(): bigint;
 
         toString(): string;
 
@@ -568,7 +568,7 @@ exports[`.transform(xdr structs) 1`] = `
 
         unsigned: boolean;
 
-        constructor(value_or_low: number | string, high?: number | string);
+        constructor(values: string | bigint | number | (string | bigint | number)[]);
 
         toXDR(format?: \\"raw\\"): Buffer;
 
@@ -598,7 +598,7 @@ exports[`.transform(xdr structs) 1`] = `
 
         static isValid(value: UnsignedHyper): boolean;
 
-        toBigInt(): number;
+        toBigInt(): bigint;
 
         toString(): string;
 
@@ -888,7 +888,7 @@ exports[`.transform(xdr unions) 1`] = `
 
         unsigned: boolean;
 
-        constructor(value_or_low: number | string, high?: number | string);
+        constructor(values: string | bigint | number | (string | bigint | number)[]);
 
         toXDR(format?: \\"raw\\"): Buffer;
 
@@ -918,7 +918,7 @@ exports[`.transform(xdr unions) 1`] = `
 
         static isValid(value: Hyper): boolean;
 
-        toBigInt(): number;
+        toBigInt(): bigint;
 
         toString(): string;
 
@@ -931,7 +931,7 @@ exports[`.transform(xdr unions) 1`] = `
 
         unsigned: boolean;
 
-        constructor(value_or_low: number | string, high?: number | string);
+        constructor(values: string | bigint | number | (string | bigint | number)[]);
 
         toXDR(format?: \\"raw\\"): Buffer;
 
@@ -961,7 +961,7 @@ exports[`.transform(xdr unions) 1`] = `
 
         static isValid(value: UnsignedHyper): boolean;
 
-        toBigInt(): number;
+        toBigInt(): bigint;
 
         toString(): string;
 

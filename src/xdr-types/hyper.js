@@ -14,21 +14,19 @@ export default function hyper(ns, name) {
   hyper.members.push(
     dom.create.constructor([
       dom.create.parameter(
-        'value_or_low',
+        'values',
         dom.create.union([
-          dom.type.number,
+          dom.type.string,
           dom.type.bigint,
-          dom.type.string
+          dom.type.number,
+          dom.create.array(
+            dom.create.union([
+              dom.type.string,
+              dom.type.bigint,
+              dom.type.number,
+            ])
+          ),
         ])
-      ),
-      dom.create.parameter(
-        'high',
-        dom.create.union([
-          dom.type.number,
-          dom.type.bigint,
-          dom.type.string
-        ]),
-        dom.ParameterFlags.Optional
       )
     ])
   );

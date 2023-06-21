@@ -4,7 +4,6 @@ import ioMixin from './io-mixin';
 /**
  * Builds a valid dts-dom node representing a signed or unsigned XDR
  * Hyper.
- *
  */
 export default function hyper(ns, name) {
   const buffer = dom.create.interface('Buffer');
@@ -14,8 +13,21 @@ export default function hyper(ns, name) {
   hyper.members.push(dom.create.property('unsigned', dom.type.boolean));
   hyper.members.push(
     dom.create.constructor([
-      dom.create.parameter('low', dom.type.number),
-      dom.create.parameter('high', dom.type.number)
+      dom.create.parameter(
+        'values',
+        dom.create.union([
+          dom.type.string,
+          dom.type.bigint,
+          dom.type.number,
+          dom.create.array(
+            dom.create.union([
+              dom.type.string,
+              dom.type.bigint,
+              dom.type.number,
+            ])
+          ),
+        ])
+      )
     ])
   );
 
@@ -78,6 +90,21 @@ export default function hyper(ns, name) {
       [dom.create.parameter('value', hyper)],
       dom.type.boolean,
       dom.DeclarationFlags.Static
+    )
+  );
+
+  hyper.members.push(
+    dom.create.method(
+      'toBigInt',
+      [],
+      dom.type.bigint
+    )
+  );
+  hyper.members.push(
+    dom.create.method(
+      'toString',
+      [],
+      dom.type.string
     )
   );
 

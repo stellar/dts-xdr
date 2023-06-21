@@ -1,0 +1,27 @@
+name: Tests
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 14
+
+    - name: Install Dependencies
+      run: yarn install --network-concurrency 1
+
+    - name: Check Snapshot Diff
+      run: yarn test -u && (git diff-index --quiet HEAD; git diff)
+
+    - name: Run Tests
+      run: yarn test

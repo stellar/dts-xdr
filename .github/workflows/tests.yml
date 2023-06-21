@@ -18,7 +18,7 @@ jobs:
         node-version: 14
 
     - name: Install Dependencies
-      run: yarn install
+      run: yarn install --network-concurrency 1
 
     - name: Check Snapshot Diff
       run: yarn test -u && (git diff-index --quiet HEAD; git diff)

@@ -1169,5 +1169,38 @@ exports[`.transform(xdr unions) 1`] = `
 
     }
 
+    class PaymentResultExt {
+        constructor(switchValue: 0);
+
+        constructor(switchValue: 1, value: Error);
+
+        switch(): number;
+
+        errorMsg(value?: Error): Error;
+
+        value(): Error | void;
+
+        toXDR(format?: \\"raw\\"): Buffer;
+
+        toXDR(format: \\"hex\\" | \\"base64\\"): string;
+
+        static read(io: Buffer): PaymentResultExt;
+
+        static write(value: PaymentResultExt, io: Buffer): void;
+
+        static isValid(value: PaymentResultExt): boolean;
+
+        static toXDR(value: PaymentResultExt): Buffer;
+
+        static fromXDR(input: Buffer, format?: \\"raw\\"): PaymentResultExt;
+
+        static fromXDR(input: string, format: \\"hex\\" | \\"base64\\"): PaymentResultExt;
+
+        static validateXDR(input: Buffer, format?: \\"raw\\"): boolean;
+
+        static validateXDR(input: string, format: \\"hex\\" | \\"base64\\"): boolean;
+
+    }
+
 }"
 `;

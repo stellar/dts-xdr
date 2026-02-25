@@ -1,28 +1,77 @@
 import { resolveType } from './utils';
 import * as dom from 'dts-dom';
 
+function isValidIdentifier(str) {
+  return /^[A-Za-z_$][A-Za-z0-9_$]*$/.test(str);
+}
+
+/**
+ * Checks if a literal node is present and of a valid type and returns the corresponding dts-dom type, otherwise returns the provided fallback type.
+ * @param {*} literalNode - The AST node to check, expected to be a Literal node with a number or string value
+ * @param {*} fallbackType - The dts-dom type to return if the literalNode is not a valid Literal with a number or string value
+ * @returns {dts-dom.Type} The dts-dom type corresponding to the literal node or the fallback type if the node is not a valid literal
+ */
+function literalNodeToType(literalNode, fallbackType) {
+  if (!literalNode || literalNode.type !== 'Literal') return fallbackType;
+  if (typeof literalNode.value === 'number') {
+    return dom.type.numberLiteral(literalNode.value);
+  }
+  if (typeof literalNode.value === 'string') {
+    return dom.type.stringLiteral(literalNode.value);
+  }
+  return fallbackType;
+}
+
+function flattenTypes(typeList) {
+  const out = [];
+  typeList.forEach((t) => {
+    if (!t) return;
+    if (t.kind === 'union') {
+      out.push(...flattenTypes(t.members));
+    } else {
+      out.push(t);
+    }
+  });
+  return out;
+}
+
+function uniqTypes(typeList) {
+  const seen = new Set();
+  const out = [];
+  flattenTypes(typeList).forEach((t) => {
+    const key = JSON.stringify(t);
+    if (seen.has(key)) return;
+    seen.add(key);
+    out.push(t);
+  });
+  return out;
+}
+
 export default function union(api, node, typeDefs) {
   const ns = typeDefs.ns;
   const [literal, objExp] = node.arguments;
   const name = literal.value;
   const union = dom.create.class(name);
-  const attributes = [];
   const buffer = dom.create.interface('Buffer');
-  let switches;
-  let arms = {};
 
-  let types = [];
+  let switchOnType = dom.type.any;
+  let switches;
+  const arms = {};
+  const valueTypes = [];
+
   objExp.properties.forEach((property) => {
     let xdrType;
     switch (property.key.name) {
-      case 'switchOn':
+      case 'switchOn': {
         xdrType = resolveType(api, property.value, typeDefs);
-        union.members.push(dom.create.method('switch', [], xdrType));
+        union.members.unshift(dom.create.method('switch', [], xdrType));
+        switchOnType = xdrType;
         break;
-      case 'arms':
+      }
+      case 'arms': {
         property.value.properties.forEach((p) => {
           xdrType = resolveType(api, p.value, typeDefs);
-          types.push(xdrType);
+          valueTypes.push(xdrType);
           union.members.push(
             dom.create.method(
               p.key.name,
@@ -39,44 +88,76 @@ export default function union(api, node, typeDefs) {
           arms[p.key.name] = xdrType;
         });
         break;
-      case 'switches':
+      }
+      case 'switches': {
         switches = property;
+        break;
+      }
+      default:
         break;
     }
   });
 
-  let hasVoidArm = false;
+  const isNumericSwitch = switchOnType === dom.type.number;
+  const constructorOverloads = [];
 
-  switches.value.elements.forEach((p) => {
-    let params;
+  if (switches?.value?.elements) {
+    switches.value.elements.forEach((entry) => {
+      const switchLiteral = entry.elements[0];
+      const armLiteralOrType = entry.elements[1];
 
-    if (arms[p.elements[1].value]) {
-      params = [dom.create.parameter('value', arms[p.elements[1].value])];
-    } else {
-      params = [];
+      const hasNamedArm =
+        armLiteralOrType &&
+        armLiteralOrType.type === 'Literal' &&
+        typeof armLiteralOrType.value === 'string' &&
+        arms[armLiteralOrType.value];
 
-      if (!hasVoidArm) {
-        types.push(dom.type.void);
+      const armType = hasNamedArm ? arms[armLiteralOrType.value] : undefined;
+
+      valueTypes.push(armType ?? dom.type.void);
+
+      const switchValueType = literalNodeToType(switchLiteral, switchOnType);
+
+      if (isNumericSwitch) {
+        const params = [dom.create.parameter('switchValue', switchValueType)];
+        if (armType) params.push(dom.create.parameter('value', armType));
+        constructorOverloads.push(dom.create.constructor(params));
       }
 
-      hasVoidArm = true;
-    }
-    union.members.push(
-      dom.create.method(
-        p.elements[0].value,
-        params,
-        union,
-        dom.DeclarationFlags.Static
-      )
-    );
-  });
-
-  if (types.length > 0) {
-    union.members.push(
-      dom.create.method('value', [], dom.create.union(types))
-    );
+      if (
+        switchLiteral?.type === 'Literal' &&
+        typeof switchLiteral.value === 'string' &&
+        isValidIdentifier(switchLiteral.value)
+      ) {
+        const params = armType ? [dom.create.parameter('value', armType)] : [];
+        union.members.push(
+          dom.create.method(
+            switchLiteral.value,
+            params,
+            union,
+            dom.DeclarationFlags.Static
+          )
+        );
+      }
+    });
   }
 
+  const finalValueTypes = uniqTypes(valueTypes);
+  const valueType =
+    finalValueTypes.length === 0
+      ? dom.type.any
+      : finalValueTypes.length === 1
+        ? finalValueTypes[0]
+        : dom.create.union(finalValueTypes);
+
+  if (constructorOverloads.length > 0) {
+    union.members.unshift(...constructorOverloads);
+  }
+
+  if (finalValueTypes.length > 0) {
+    union.members.push(dom.create.method('value', [], valueType));
+  }
+  // IO methods
   union.members.push(
     dom.create.method(
       'toXDR',

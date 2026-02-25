@@ -31,4 +31,16 @@ var types = XDR.config((xdr) => {
     arms: {},
     defaultArm: xdr.void()
   });
+
+  xdr.union('PaymentResultExt', {
+    switchOn: xdr.int(),
+    switchName: 'v',
+    switches: [
+      [0, xdr.void()],
+      [1, 'errorMsg']
+    ],
+    arms: {
+      errorMsg: xdr.lookup('Error')
+    }
+  });
 });

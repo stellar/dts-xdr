@@ -89,9 +89,13 @@ export default function transformer(file, api) {
     return false;
   });
 
-  config.forEach(function(statement) {
+  config.forEach(function (statement) {
+    // TODO: remove this once https://github.com/stellar/xdrgen/issues/152 has been resolved
+    if (statement.type !== 'ExpressionStatement') return;
     const node = statement.expression;
     const callee = node.callee;
+    // TODO: remove this once https://github.com/stellar/xdrgen/issues/152 has been resolved
+    if (!callee) return;
 
     if (
       callee.type === 'MemberExpression' &&
@@ -103,9 +107,11 @@ export default function transformer(file, api) {
   });
 
   // process typedefs first
-  config.forEach(function(statement) {
+  config.forEach(function (statement) {
+    if (statement.type !== 'ExpressionStatement') return;
     const node = statement.expression;
     const callee = node.callee;
+    if (!callee) return;
 
     if (
       callee.type === 'MemberExpression' &&
@@ -117,9 +123,11 @@ export default function transformer(file, api) {
   });
 
   // process structs first
-  config.forEach(function(statement) {
+  config.forEach(function (statement) {
+    if (statement.type !== 'ExpressionStatement') return;
     const node = statement.expression;
     const callee = node.callee;
+    if (!callee) return;
 
     if (
       callee.type === 'MemberExpression' &&
@@ -132,9 +140,11 @@ export default function transformer(file, api) {
   });
 
   // process unions first
-  config.forEach(function(statement) {
+  config.forEach(function (statement) {
+    if (statement.type !== 'ExpressionStatement') return;
     const node = statement.expression;
     const callee = node.callee;
+    if (!callee) return;
 
     if (
       callee.type === 'MemberExpression' &&
